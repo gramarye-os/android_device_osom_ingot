@@ -169,6 +169,8 @@ VENDOR_SECURITY_PATCH := 2024-11-01
 # SELinux
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+# AOHP: vendor-side grants for aohp-containerd (Hexagon FastRPC for the Driver-shipped llama-server).
+BOARD_VENDOR_SEPOLICY_DIRS += vendor/aohp/sepolicy/vendor
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
