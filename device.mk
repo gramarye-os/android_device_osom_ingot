@@ -397,3 +397,9 @@ PRODUCT_PACKAGES += \
 
 # Inherit from vendor blobs
 $(call inherit-product, vendor/osom/ingot/ingot-vendor.mk)
+
+# Kernel requirements of the framework compatibility matrix are not enforced at OTA time: our
+# kernel (vendor/aohp.config) turns on CONFIG_SYSVIPC for the Linux env, which FCM level 7 lists as
+# "required n". The platform itself does not use SysV IPC; the check is conformance policy, not a
+# runtime dependency. Revisit if the image is ever meant to pass VTS.
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
